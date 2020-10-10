@@ -79,21 +79,24 @@ viewScores=(data, subject)=> {
     let siswa1 = new Score (subject, data[1][1],data[1][0])
     let siswa2 = new Score (subject, data[2][1],data[2][0])
     let siswa3 = new Score (subject, data[3][1],data[3][0])
-    let temp=[siswa1.display(),siswa2.display(),siswa3.display()]
+    let siswa4 = new Score (subject, data[4][1],data[4][0])
+    let temp=[siswa1.display(),siswa2.display(),siswa3.display(),siswa4.display()]
     console.log(temp)
   }
   else if (subject=="quiz-2"){
     let siswa1 = new Score (subject, data[1][2],data[1][0])
     let siswa2 = new Score (subject, data[2][2],data[2][0])
     let siswa3 = new Score (subject, data[3][2],data[3][0])
-    let temp=[siswa1.display(),siswa2.display(),siswa3.display()]
+    let siswa4 = new Score (subject, data[4][1],data[4][0])
+    let temp=[siswa1.display(),siswa2.display(),siswa3.display(),siswa4.display()]
     console.log(temp)
   }
   else if (subject=="quiz-3"){
     let siswa1 = new Score (subject, data[1][3],data[1][0])
     let siswa2 = new Score (subject, data[2][3],data[2][0])
     let siswa3 = new Score (subject, data[3][3],data[3][0])
-    let temp=[siswa1.display(),siswa2.display(),siswa3.display()]
+    let siswa4 = new Score (subject, data[4][1],data[4][0])
+    let temp=[siswa1.display(),siswa2.display(),siswa3.display(),siswa4.display()]
     console.log(temp)
   }
   
