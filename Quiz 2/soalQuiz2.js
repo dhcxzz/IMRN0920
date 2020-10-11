@@ -119,15 +119,7 @@ recapScores = (data) => {
     let obj = new Score("Nilai Akhir", [data[i][1], data[i][2], data[i][3]], data[i][0])
     let nilai = obj.average()
 
-    if(nilai > 90){
-      predikat = "honour"
-    }
-    else if(nilai > 80){
-      predikat = "graduate"
-    }
-    else if(nilai > 70){
-      predikat = "participant"
-    }
+    let predikat = (nilai>90) ? "honour": (nilai>80) ? "graduate" : (nilai>70) ? "participant" :
 
     console.log(`${i}. Email: ${obj.email}`)
     console.log(`Rata-rata: ${nilai.toFixed(1)}`)
