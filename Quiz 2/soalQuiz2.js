@@ -19,24 +19,24 @@
 */
 
 class Score {
-  constructor(subject,points,email){
-    this.subject=subject
-    this.points=points
-    this.email=email
+  // Code disini
+  constructor(subject, points, email){
+    this.subject = subject
+    this.points = points
+    this.email = email
   }
- 
-  display(){
-    return `{email: "${this.email}", subject: "${this.subject}", points: ${this.points}}`
-  }
-  
-  /*average(){
-    let sum = 0;
-    for( let i = 0; i < this.points.length; i++ ){
-        sum += parseInt( this.points[i])
-    }
 
-    var avg = sum/this.points.length
-    }*/
+  average(){
+    if(this.points.length > 1){
+      let sum = 0
+      let ave = 0
+      for(let i = 0; i < this.points.length; i++){
+        sum += this.points[i]
+      }
+      ave = sum / this.points.length
+      return ave
+    }
+  }
 }
 
 /*=========================================== 
@@ -46,7 +46,6 @@ class Score {
   Function viewScores mengolah data email dan nilai skor pada parameter array 
   lalu mengembalikan data array yang berisi object yang dibuat dari class Score.
   Contoh: 
-
   Input
    
   data : 
@@ -56,7 +55,6 @@ class Score {
     ["khairun@mail.com", 95, 85, 88]
   ]
   subject: "quiz-1"
-
   Output 
   [
     {email: "abduh@mail.com", subject: "quiz-1", points: 78},
@@ -65,47 +63,31 @@ class Score {
 */
 
 const data = [
-  ["email", "quiz - 1", "quiz - 2", "quiz - 3"],
+  ["email", "quiz-1", "quiz-2", "quiz-3"],
   ["abduh@mail.com", 78, 89, 90],
   ["khairun@mail.com", 95, 85, 88],
   ["bondra@mail.com", 70, 75, 78],
   ["regi@mail.com", 91, 89, 93]
 ]
 
-viewScores=(data, subject)=> {
-   
-  if(subject=="quiz-1"){
-    
-    let siswa1 = new Score (subject, data[1][1],data[1][0])
-    let siswa2 = new Score (subject, data[2][1],data[2][0])
-    let siswa3 = new Score (subject, data[3][1],data[3][0])
-    let siswa4 = new Score (subject, data[4][1],data[4][0])
-    let temp=[siswa1.display(),siswa2.display(),siswa3.display(),siswa4.display()]
-    console.log(temp)
+viewScores = (data, subject) => {
+  let temp = []
+  for(let i = 1; i < data.length; i++){
+    for(let j = 1; j < data[0].length; j++){
+      if(subject == data[0][j]){
+        let obj = new Score(subject, data[i][j], data[i][0])
+        temp.push(obj)
+      }
+    }
   }
-  else if (subject=="quiz-2"){
-    let siswa1 = new Score (subject, data[1][2],data[1][0])
-    let siswa2 = new Score (subject, data[2][2],data[2][0])
-    let siswa3 = new Score (subject, data[3][2],data[3][0])
-    let siswa4 = new Score (subject, data[4][1],data[4][0])
-    let temp=[siswa1.display(),siswa2.display(),siswa3.display(),siswa4.display()]
-    console.log(temp)
-  }
-  else if (subject=="quiz-3"){
-    let siswa1 = new Score (subject, data[1][3],data[1][0])
-    let siswa2 = new Score (subject, data[2][3],data[2][0])
-    let siswa3 = new Score (subject, data[3][3],data[3][0])
-    let siswa4 = new Score (subject, data[4][1],data[4][0])
-    let temp=[siswa1.display(),siswa2.display(),siswa3.display(),siswa4.display()]
-    console.log(temp)
-  }
-  
+  console.log(temp)
 }
 
 // TEST CASE
 viewScores(data, "quiz-1")
 viewScores(data, "quiz-2")
 viewScores(data, "quiz-3")
+
 
 /*==========================================
   3. SOAL Recap Score (15 Poin + 5 Poin ES6)
@@ -116,28 +98,42 @@ viewScores(data, "quiz-3")
     nilai > 70 "participant"
     nilai > 80 "graduate"
     nilai > 90 "honour"
-
     output:
     1. Email: abduh@mail.com
     Rata-rata: 85.7
     Predikat: graduate
-
     2. Email: khairun@mail.com
     Rata-rata: 89.3
     Predikat: graduate
-
     3. Email: bondra@mail.com
     Rata-rata: 74.3
     Predikat: participant
-
     4. Email: regi@mail.com
     Rata-rata: 91
     Predikat: honour
-
 */
 
-function recapScores(data) {
+recapScores = (data) => {
   // code kamu di sini
+  for(let i = 1; i < data.length; i++){
+    let obj = new Score("Nilai Akhir", [data[i][1], data[i][2], data[i][3]], data[i][0])
+    let nilai = obj.average()
+
+    if(nilai > 90){
+      predikat = "honour"
+    }
+    else if(nilai > 80){
+      predikat = "graduate"
+    }
+    else if(nilai > 70){
+      predikat = "participant"
+    }
+
+    console.log(`${i}. Email: ${obj.email}`)
+    console.log(`Rata-rata: ${nilai.toFixed(1)}`)
+    console.log(`Predikat: ${predikat}`)
+    console.log()
+  }
 }
 
 recapScores(data);
