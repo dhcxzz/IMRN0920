@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   Platform,
   StyleSheet,
@@ -6,7 +6,7 @@ import {
   View,
   Image,
   TouchableOpacity,
-  FlatList
+  FlatList,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import VideoItem from './videoItem';
@@ -17,28 +17,32 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.navBar}>
-          <Image source={require('./logo.png')} style={{ width: 98, height: 22 }} />
+          <Image
+            source={require('./logo.png')}
+            style={{width: 98, height: 22}}
+          />
           <View style={styles.rightNav}>
             <TouchableOpacity>
               <Icon style={styles.navItem} name="search" size={25} />
             </TouchableOpacity>
             <TouchableOpacity>
-            <Icon style={styles.navItem} name="account-circle" size={25} />
+              <Icon style={styles.navItem} name="account-circle" size={25} />
             </TouchableOpacity>
           </View>
         </View>
         <View style={styles.body}>
           <FlatList
-          data={data.items}
-          renderItem={(video)=><VideoItem video={video.item} />}
-          keyExtractor={(item)=>item.id}
-          ItemSeparatorComponent={()=><View style={{height:0.5,backgroundColor:'#E5E5E5'}}/>}
-
-           />
+            data={data.items}
+            renderItem={(video) => <VideoItem video={video.item} />}
+            keyExtractor={(item) => item.id}
+            ItemSeparatorComponent={() => (
+              <View style={{height: 0.5, backgroundColor: '#E5E5E5'}} />
+            )}
+          />
         </View>
         <View style={styles.tabBar}>
           <TouchableOpacity style={styles.tabItem}>
-            <Icon name="home" size={25}/>
+            <Icon name="home" size={25} />
             <Text style={styles.tabTitle}>Home</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.tabItem}>
@@ -61,7 +65,7 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   navBar: {
     height: 55,
@@ -70,16 +74,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   rightNav: {
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   navItem: {
-    marginLeft: 25
+    marginLeft: 25,
   },
   body: {
-    flex: 1
+    flex: 1,
   },
   tabBar: {
     backgroundColor: 'white',
@@ -87,15 +91,15 @@ const styles = StyleSheet.create({
     borderTopWidth: 0.5,
     borderColor: '#E5E5E5',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
   },
   tabItem: {
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   tabTitle: {
     fontSize: 11,
     color: '#3c3c3c',
-    paddingTop: 4
-  }
+    paddingTop: 4,
+  },
 });
