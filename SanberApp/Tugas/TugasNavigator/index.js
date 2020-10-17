@@ -22,7 +22,7 @@ const Stack = createStackNavigator();
 
 const index = () => {
     return (
-        <NavigationContainer initialRouteName="LoginSreen">
+        <NavigationContainer >
             <Stack.Navigator>
                 <Stack.Screen name="LoginScreen" component={Login} />
                 <Stack.Screen name="TabBawah" component={TabBawah}/>
@@ -34,9 +34,9 @@ const index = () => {
 
 const MyDrawwer = ()=>{
     return(
-    <Drawer.Navigator initialRouteName="LoginScreen">
-        <Drawer.Screen name="Login" component={Login} />
+    <Drawer.Navigator >
         <Drawer.Screen name="About" component={About} />
+        <Stack.Screen name="Skill,Project,Add" component={TabBawah}/>
     </Drawer.Navigator>
     )
 }

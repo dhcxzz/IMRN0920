@@ -44,11 +44,6 @@ const LoginScreen = ({navigation}) => {
                     <View style={{paddingHorizontal: 10}}>
                         <Button onPress={()=>navigation.navigate('MyDrawwer')}  title="Drawer"/>                
                     </View>
-                    <View style={{paddingHorizontal: 10}}>
-                        <Button onPress={()=>navigation.navigate('TabBawah')}  title="BottomTab"/>                
-                    </View>
-                    
-
                 </View>
             </ScrollView>
         </KeyboardAvoidingView>
