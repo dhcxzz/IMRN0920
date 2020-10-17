@@ -44,9 +44,9 @@ const MyDrawwer = ()=>{
 const TabBawah =() =>{
     return(
         <Tab.Navigator>
-        <Tab.Screen name="SkillScreen" component={Skill} />
-        <Tab.Screen name="ProjectScreen" component={Project} />
-        <Tab.Screen name="AddScreen" component={Add} />
+        <Tab.Screen name="Skill" component={Skill} />
+        <Tab.Screen name="Project" component={Project} />
+        <Tab.Screen name="Add" component={Add} />
       </Tab.Navigator>
     )
 }
