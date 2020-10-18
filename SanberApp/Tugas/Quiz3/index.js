@@ -16,6 +16,8 @@ import Splash from './Splash';
 import Cart from './cart';
 import Message from './message';
 import Profile from './profile';
+import Material from 'react-native-vector-icons/AntDesign';
+import Evil from 'react-native-vector-icons/EvilIcons';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -36,10 +38,42 @@ const index = () => {
 const TabBawah = () => {
   return (
     <Tab.Navigator>
-      <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Cart" component={Cart} />
-      <Tab.Screen name="Message" component={Message} />
-      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Material name="home" color={'#848991'} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Cart"
+        component={Cart}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Material name="shoppingcart" color={'#848991'} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Message"
+        component={Message}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Evil name="envelope" color={'#848991'} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({color, size}) => (
+            <Material name="user" color={'#848991'} size={size} />
+          ),
+        }}
+      />
     </Tab.Navigator>
   );
 };
